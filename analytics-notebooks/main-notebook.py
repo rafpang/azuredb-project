@@ -49,7 +49,9 @@ display(df.groupBy("driver_nationality").count().orderBy("count", ascending=Fals
 
 # COMMAND ----------
 
+#Which drivers have (or had) the most grandprix wins?
 
+display(df.filter(df.positionOrder == 1).select('driverRef','resultId').groupBy('driverRef').count().orderBy("count", ascending=False).limit(10)) 
 
 # COMMAND ----------
 
